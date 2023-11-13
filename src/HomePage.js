@@ -7,32 +7,34 @@ function HomePage() {
 
   return (
     <>
-      <div className="App">
-        <div class="body"></div>
-        <div id="formDiv"></div>
+      {/* <div className="App"> */}
+      <div className="body"></div>
+      <div id="formDiv"></div>
 
-        <div class="header">
-          <div>
-            Camp<span>Out</span>
-          </div>
+      <div className="header">
+        <div>
+          TwoStep<span>Login</span>
         </div>
+      </div>
+
+      <br />
+
+      <div className="login">
+        <input type="email" placeholder="Email" name="email" value={email} />
+        <br />
+
+        <input
+          type="password"
+          placeholder="password"
+          name="password"
+          value={password}
+        />
 
         <br />
 
-        <div class="login">
-          <input type="email" placeholder="Email" name="email" value={email} />
-          <br />
-
-          <input
-            type="password"
-            placeholder="password"
-            name="password"
-            value={password}
-          />
-          <br />
-          <button>Submit</button>
-        </div>
+        <button onClick={""}>Submit</button>
       </div>
+      {/* </div> */}
     </>
   );
 }
