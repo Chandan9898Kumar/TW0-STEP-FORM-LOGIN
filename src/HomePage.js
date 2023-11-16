@@ -13,7 +13,8 @@ function HomePage() {
 
       <div className="header">
         <div>
-          TwoStep{"  "}<span>Login</span>
+          TwoStep{"  "}
+          <span>Login</span>
         </div>
       </div>
 
