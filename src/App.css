@@ -110,7 +110,7 @@ body{
 	width: 300px;
 	height: 40px;
 	background: transparent;
-	border: 1px solid rgb(114, 95, 95);
+	border: 2px solid rgb(114, 95, 95);
 	border-radius: 10px;
 	color: #fff;
 	font-family: 'Raleway';
@@ -123,7 +123,7 @@ body{
 	width: 300px;
 	height: 40px;
 	background: transparent;
-	border: 1px solid rgb(114, 95, 95);
+	border: 2px solid rgb(114, 95, 95);
 	border-radius: 10px;
 	color: #fff;
 	font-family: 'Raleway', sans-serif;
@@ -148,14 +148,14 @@ body{
 	padding: 6px;
 	margin-top: 10px;
   border-radius: 25px;
-  border: 1px solid rgba(255,255,255,0.8);
+  border: 2px solid rgba(255,255,255,0.8);
 }
 
 .login button:hover{
 	opacity: 0.8;
   color: black;
   background: #fff;
-	border: 1px solid #fff;
+	border: 2px solid #fff;
   border-radius: 25px;
   
 }
@@ -166,12 +166,12 @@ body{
 
 .login input[type=email]:focus{
 	outline: none;
-	border: 1px solid rgba(255,255,255,1);
+	border: 2px solid rgba(255,255,255,1);
 }
 
 .login input[type=password]:focus{
 	outline: none;
-	border: 1px solid rgba(255,255,255,1);
+	border: 2px solid rgba(255,255,255,1);
 }
 
 .login button:focus{
