@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useEffect, useState, Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Spinner from "./Spinner/Spinner";
 const HomePage = lazy(() => import("./HomePage"));
 const Game = lazy(() => import("./Game"));
 
@@ -8,13 +9,7 @@ function App() {
   return (
     <>
       <div className="App">
-        <Suspense
-          fallback={
-            <div style={{ color: "black", fontSize: "40px" }}>
-              Please Wait while data is loading...
-            </div>
-          }
-        >
+        <Suspense fallback={<Spinner />}>
           <BrowserRouter basename="/">
             <Routes>
               <Route exact path="/" element={<HomePage />} />
@@ -33,8 +28,8 @@ export default App;
 export function NotFound() {
   return (
     <>
-      <div style={{ color: "red", fontSize: "40px", margin: "auto" }}>
-        <h2>You have landed on a page that doesn't exist</h2>
+      <div style={{fontSize: "40px", margin: "auto" }}>
+        <Link to="/">You have landed on a page that doesn't exist</Link>
       </div>
     </>
   );
