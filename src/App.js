@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useEffect, useState, Suspense, lazy } from "react";
+import React, {  Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Spinner from "./Spinner/Spinner";
 const HomePage = lazy(() => import("./HomePage"));
