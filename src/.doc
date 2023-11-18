@@ -1,0 +1,306 @@
+
+//         Note if call email and password like a function inside a component and return it as an component so,
+/**
+ * Well because if I wrap them in a function and then use the global state, 
+ * it creates a bug, and because of this, the input component loses its focus every time we type something because once the state is updated the component re-renders 
+ * and because the input field is wrapped inside a function, it is treated as functional component thus it loses it focus. Every-time the state is updated 
+ * then a new email or password component is created in return.So it loses it focus.
+ * 
+ */
+
+//                         Ex -- Below
+
+
+
+import { useState } from "react";
+
+const LoginForm = () => {
+ const [track, setTrack] = useState(0);
+ const [email, setEmail] = useState("");
+ const [password, setPassword] = useState("");
+
+ const verifyEmail = async () => {
+   // async operations
+   // validate email
+   if (email) {
+     setTrack(1);
+   }
+ };
+
+ const handleSubmit = async () => {
+   // async operations
+ };
+
+ const Email = () => (
+   <>
+      <input
+        type="email"
+        value={email}
+        placeholder="Email"
+        floatLabelType="Auto"
+        onChange={(event) => setEmail(event.target.value)}
+        cssClass="e-outline"
+      />
+      <div className="buttonWrapper">
+        <button
+          type="submit"
+          cssClass="e-info"
+          style={{ fontSize: "18px", padding: "10px 20px" }}
+          onClick={verifyEmail}
+        >
+          Next
+        </button>
+      </div>{" "}
+   </>
+ );
+
+ const Password = () => (
+   <>
+     <input
+        type="password"
+        value={password}
+        placeholder="Password"
+        floatLabelType="Auto"
+        onChange={(event) => setPassword(event.target.value)}
+        cssClass="e-outline"
+        key="2"
+      />
+      <div className="buttonWrapper">
+        <button
+          type="submit"
+          cssClass="e-danger"
+          onClick={() => setTrack(0)}
+          style={{ fontSize: "18px", padding: "10px 20px" }}
+        >
+          Change Email
+        </button>{" "}
+        <button
+          type="submit"
+          cssClass="e-success"
+          onClick={handleSubmit}
+          style={{ fontSize: "18px", padding: "10px 20px" }}
+        >
+          Submit
+        </button>
+      </div>
+   </>
+ );
+
+ // verify the email first and then the password
+ return track === 0 ? <Email /> : <Password />;
+};
+
+export default LoginForm;
+
+
+
+
+
+/**    Solution for this  is  either we have done like we did in  CommonComponent  .
+ * 
+ * 
+ * 
+ * or   Below  
+ * 
+ * 
+ * 
+ */
+//                                                                1St solution
+//  Here instead of creating a email function inside a LoginForm Function, we can declare Email/Password as a constant. so every-time if state is update and LoginForm is
+//  re-rendered then email/password constants will be re-rendered instead of newly created email/password functions that we did in the above example.
+
+import { useState } from "react";
+
+const LoginForm = () => {
+  const [track, setTrack] = useState(0);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const verifyEmail = async () => {
+    // async operations
+    // validate email
+    if (email) {
+      setTrack(1);
+    }
+  };
+
+  const handleSubmit = async () => {
+    window.location.reload();
+    // async operations
+  };
+
+  const Email = (
+    <>
+      <input
+        type="email"
+        value={email}
+        placeholder="Email"
+        floatLabelType="Auto"
+        onChange={(event) => setEmail(event.target.value)}
+        cssClass="e-outline"
+      />
+      <div className="buttonWrapper">
+        <button
+          type="submit"
+          cssClass="e-info"
+          style={{ fontSize: "18px", padding: "10px 20px" }}
+          onClick={verifyEmail}
+        >
+          Next
+        </button>
+      </div>{" "}
+    </>
+  );
+
+  const Password = (
+    <>
+      <input
+        type="password"
+        value={password}
+        placeholder="Password"
+        floatLabelType="Auto"
+        onChange={(event) => setPassword(event.target.value)}
+        cssClass="e-outline"
+        key="2"
+      />
+      <div className="buttonWrapper">
+        <button
+          type="submit"
+          cssClass="e-danger"
+          onClick={() => setTrack(0)}
+          style={{ fontSize: "18px", padding: "10px 20px" }}
+        >
+          Change Email
+        </button>{" "}
+        <button
+          type="submit"
+          cssClass="e-success"
+          onClick={handleSubmit}
+          style={{ fontSize: "18px", padding: "10px 20px" }}
+        >
+          Submit
+        </button>
+      </div>
+    </>
+  );
+
+  // verify the email first and then the password
+  return (
+    <>
+      <p>{track === 0 ? Email : Password}</p>
+    </>
+  );
+};
+
+export default LoginForm;
+
+
+
+
+
+//                                                               2nd Solution
+
+//   we can simply put these Email and Password functions to above/below the LoginForm function.
+
+
+
+import { useState } from "react";
+
+export const Email = ({ email, setEmail, verifyEmail }) => (
+  <>
+    <input
+      type="email"
+      value={email}
+      placeholder="Email"
+      onChange={(event) => setEmail(event.target.value)}
+      cssClass="e-outline"
+    />
+    <div className="buttonWrapper">
+      <button
+        type="submit"
+        cssClass="e-info"
+        style={{ fontSize: "18px", padding: "10px 20px" }}
+        onClick={verifyEmail}
+      >
+        Next
+      </button>
+    </div>{" "}
+  </>
+);
+
+export const Password = ({ password, setPassword, setTrack, handleSubmit }) => (
+  <>
+    <input
+      type="password"
+      value={password}
+      placeholder="Password"
+      floatLabelType="Auto"
+      onChange={(event) => setPassword(event.target.value)}
+      key="2"
+    />
+    <div className="buttonWrapper">
+      <button
+        type="submit"
+        cssClass="e-danger"
+        onClick={() => setTrack(0)}
+        style={{ fontSize: "18px", padding: "10px 20px" }}
+      >
+        Change Email
+      </button>{" "}
+      <button
+        type="submit"
+        cssClass="e-success"
+        onClick={handleSubmit}
+        style={{ fontSize: "18px", padding: "10px 20px" }}
+      >
+        Submit
+      </button>
+    </div>
+  </>
+);
+
+const LoginForm = () => {
+  const [track, setTrack] = useState(0);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const verifyEmail = async () => {
+    // async operations
+    // validate email
+    if (email) {
+      setTrack(1);
+    }
+  };
+
+  const handleSubmit = async () => {
+    // async operations
+    window.location.reload();
+  };
+  console.log(email, "email");
+  // verify the email first and then the password
+  return track === 0 ? (
+    <Email 
+    email={email} 
+    setEmail={setEmail} 
+    verifyEmail={verifyEmail} />
+  ) : (
+    <Password
+      password={password}
+      setPassword={setPassword}
+      setTrack={setTrack}
+      handleSubmit={handleSubmit}
+    />
+  );
+};
+
+export default LoginForm;
+
+
+
+
+
+
+
+
+
+

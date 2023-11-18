@@ -10,6 +10,7 @@ const InputField = ({ type, placeholder, name, value, onChangeHandler }) => {
         name={name}
         value={value}
         onChange={(event) => onChangeHandler(event.target.value)}
+        autoFocus
       />
     </>
   );
