@@ -1,10 +1,11 @@
 import "./App.css";
-import React, {  Suspense, lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Spinner from "./Spinner/Spinner";
 const HomePage = lazy(() => import("./HomePage"));
 const Game = lazy(() => import("./Game"));
 
+const RaceCondition = lazy(() => import("./HandleRaceCondition/MainComponent"));
 function App() {
   return (
     <>
@@ -14,6 +15,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<HomePage />} />
               <Route path="/game" element={<Game />} />
+              <Route path="/raceCondition" element={<RaceCondition />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
@@ -120,10 +122,6 @@ which operates just as the Redirect component does by taking in the to prop to e
 //     );
 // }
 // export default App;
-
-
-
-
 
 /**                                                                        Conditional Redirects
  * 
