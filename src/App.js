@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, Navigate,NavLink } from "react-router-dom";
 import Spinner from "./Spinner/Spinner";
 const HomePage = lazy(() => import("./HomePage"));
 const Game = lazy(() => import("./Game"));

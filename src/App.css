@@ -26,7 +26,7 @@ body {
 }
 
 .body {
-  position: absolute;
+  position: fixed;
   top: -20px;
   left: -20px;
   right: -40px;
@@ -50,6 +50,9 @@ body {
   border-top: 2px solid rgba(225, 225, 225, 0.3);
   border-left: 2px solid rgba(225, 225, 225, 0.1);
   border-right: 1px solid rgba(225, 225, 225, 0.2);
+  margin: auto;
+  position: relative;
+  top: 35%;
 }
 
 .header {
@@ -169,6 +172,20 @@ div.emailError {
   margin-top: 10px;
   filter: brightness(40px);
   position: relative;
+  top: 40%;
+}
+
+.raceConditionHeading {
+  position: absolute;
+  left: 150px;
+  top: 10px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+.raceConditionHeading:hover {
+  color: #ecb6b6;
+  cursor: pointer;
 }
 
 /*                                    The orientation CSS media feature can be used to test the orientation of the viewport (or the page box, for paged media). */
