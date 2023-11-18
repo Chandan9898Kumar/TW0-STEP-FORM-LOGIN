@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  font-family: Arial;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.raceHead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  border: 4px solid lightcoral;
+  height: 500px;
+  background-color: bisque;
+}
+
+.raceIssue {
+  margin-bottom: 300px;
+}
+
+.raceSolution {
+  margin-bottom: 300px;
+}

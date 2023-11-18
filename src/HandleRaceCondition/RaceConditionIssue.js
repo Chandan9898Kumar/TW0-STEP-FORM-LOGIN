@@ -19,7 +19,7 @@ const RaceConditionIssue = () => {
 
   return (
     <Fragment>
-      <div>Race Condition Issue </div>
+      
       <button onClick={() => setPerson("Nick")}>Nick's Profile</button>
       <button onClick={() => setPerson("Deb")}>Deb's Profile</button>
       <button onClick={() => setPerson("Joe")}>Joe's Profile</button>
