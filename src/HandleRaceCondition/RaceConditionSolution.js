@@ -78,3 +78,166 @@ export default RaceConditionSolution;
  * Perfect — No matter how many times we click different buttons, we will always only see data associated with the last button click.
 
  */
+
+/**                                                                       Solution Two
+ * 
+ * we Can fix this race condition by using setTimeout.
+ * 
+ * 
+ * import React, { Fragment, useState, useEffect } from "react";
+const fakeFetch = (person) => {
+  return fetch(`https://api.postalpincode.in/postoffice/${person}`);
+};
+const App = () => {
+  const [data, setData] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [person, setPerson] = useState(null);
+
+  useEffect(() => {
+    let timer;
+    setLoading(true);
+
+    timer = setTimeout(() => {
+      fakeFetch(person)
+        .then((response) => response.json())
+        .then((data) => {
+          setData(data);
+          setLoading(false);
+        });
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [person]);
+  return (
+    (
+      <Fragment>
+        <button onClick={() => setPerson("new delhi")}>delhi</button>
+        <button onClick={() => setPerson("kolkata")}>kolkata</button>
+        <button onClick={() => setPerson("mumbai")}>mumbai</button>
+        {person && (
+          <Fragment>
+            <h1>{person}</h1>
+            <p>
+              {loading
+                ? "Loading..."
+                : data &&
+                  data[0] &&
+                  data[0].PostOffice &&
+                  data[0].PostOffice[0].Division}
+            </p>
+          </Fragment>
+        )}
+      </Fragment>
+    )
+  );
+};
+export default App;
+ * 
+ */
+
+/**                                                                     Solution 3
+ * 
+ *                                                        Cancelling the API request using AbortController()
+
+JavaScript web API’s have a method called AbortController.
+This AbortController has a property called signal that allows us to create an AbortSignal that can be associated with the Fetch API which provides an option to abort the API request.
+With this during the clean-up when the component is about to unmount, we can invoke the abort to cancel the API request.
+ * 
+ * 
+ * 
+ * 
+ * 
+ * import React, { useState, useRef, useEffect } from 'https://esm.sh/react@18.2.0'
+   import ReactDOM from 'https://esm.sh/react-dom@18.2.0'
+
+const App = (props) => {
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    
+    const fetchData = async () => {
+      try{
+        let resp = await fetch(`https://jsonplaceholder.typicode.com/todos/${props.id}`,{
+            signal: abortController.signal,
+          });
+        resp = await resp.json();
+        setData(resp);
+      }catch(error){
+        // abort controller throws error when aborted
+        // thus it needs to be handled
+      }
+    };
+
+    fetchData();
+    
+    () => {
+       abortController.abort();
+    }
+  }, [props.id]);
+
+  return <div>{data.title || "Hello World!"}</div>;
+}
+
+ReactDOM.render(<App />, document.getElementById("root"));
+ * 
+ * 
+ */
+
+//                                                                  Real world Example with AbortController.
+
+/**
+ * import React, { Fragment, useState, useEffect } from "react";
+const App = () => {
+  const [data, setData] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [person, setPerson] = useState(null);
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    setLoading(true);
+
+    const fetchData = () => {
+      fetch(`https://api.postalpincode.in/postoffice/${person}`, {
+        signal: abortController.signal
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setData(data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error(err, "error");
+        });
+    };
+    fetchData();
+    return () => {
+      abortController.abort();
+    };
+  }, [person]);
+  return (
+    <Fragment>
+      <button onClick={() => setPerson("new delhi")}>delhi</button>
+      <button onClick={() => setPerson("kolkata")}>kolkata</button>
+      <button onClick={() => setPerson("mumbai")}>mumbai</button>
+      {person && (
+        <Fragment>
+          <h1>{person}</h1>
+          <p>
+            {loading
+              ? "Loading..."
+              : data &&
+                data[0] &&
+                data[0].PostOffice &&
+                data[0].PostOffice[0].Division}
+          </p>
+        </Fragment>
+      )}
+    </Fragment>
+  );
+};
+export default App;
+
+ */
