@@ -10,6 +10,7 @@ const RaceConditionSolution = () => {
   const [person, setPerson] = useState(null);
 
   useEffect(() => {
+
     let canceled = false;
     setLoading(true);
     fakeFetch(person).then((data) => {
@@ -18,6 +19,7 @@ const RaceConditionSolution = () => {
         setLoading(false);
       }
     });
+    
     return () => (canceled = true);
   }, [person]);
 

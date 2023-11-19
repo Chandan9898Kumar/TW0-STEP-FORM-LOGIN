@@ -5,16 +5,19 @@ const fakeFetch = (person) => {
   });
 };
 const RaceConditionIssue = () => {
+  
   const [data, setData] = useState("");
   const [loading, setLoading] = useState(false);
   const [person, setPerson] = useState(null);
 
   useEffect(() => {
+
     setLoading(true);
     fakeFetch(person).then((data) => {
       setData(data);
       setLoading(false);
     });
+
   }, [person]);
 
   return (
