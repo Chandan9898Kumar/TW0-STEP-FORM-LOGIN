@@ -5,6 +5,7 @@ const fakeFetch = (person) => {
   });
 };
 const RaceConditionSolution = () => {
+
   const [data, setData] = useState("");
   const [loading, setLoading] = useState(false);
   const [person, setPerson] = useState(null);
@@ -21,6 +22,7 @@ const RaceConditionSolution = () => {
     });
     
     return () => (canceled = true);
+
   }, [person]);
 
   return (
@@ -35,6 +37,7 @@ const RaceConditionSolution = () => {
           <p>{loading ? "Loading..." : data}</p>
         </Fragment>
       )}
+      
     </Fragment>
   );
 };

@@ -13,6 +13,7 @@ const RaceConditionIssue = () => {
   useEffect(() => {
 
     setLoading(true);
+    
     fakeFetch(person).then((data) => {
       setData(data);
       setLoading(false);
@@ -32,6 +33,7 @@ const RaceConditionIssue = () => {
           <p>{loading ? "Loading..." : data}</p>
         </Fragment>
       )}
+
     </Fragment>
   );
 };
