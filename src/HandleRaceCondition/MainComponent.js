@@ -20,6 +20,14 @@ const MainComponent = () => {
           <RaceConditionSolution />
         </div>
       </div>
+      <div className="raceLinkHead">
+        <a
+          href="https://miro.medium.com/v2/resize:fit:700/1*oTOIIk22d_053dIhZTHkBw.png"
+          className="raceLink"
+        >
+          Click to See Race Condition Image
+        </a>
+      </div>
     </>
   );
 };

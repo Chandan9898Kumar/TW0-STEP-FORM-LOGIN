@@ -49,7 +49,8 @@ const RaceConditionIssue = () => {
           here is relatively intuitive: setData(data) within the useEffect hook
           is only called after the fakeFetch promise is resolved. Whichever
           promise resolves last will call setData last, regardless of which
-          button was actually called last.
+          button was actually called last.<br />
+          <i>As you can see, this code easily leads to weird, inconsistent UI states.</i>
         </div>
       )}
     </Fragment>

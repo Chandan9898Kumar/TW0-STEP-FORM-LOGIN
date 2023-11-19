@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route, Link, Navigate,NavLink } from "react-router-dom";
+// eslint-disable-next-line 
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Spinner from "./Spinner/Spinner";
 const HomePage = lazy(() => import("./HomePage"));
 const Game = lazy(() => import("./Game"));
