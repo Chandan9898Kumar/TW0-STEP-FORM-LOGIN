@@ -14,17 +14,23 @@ const RaceConditionSolution = () => {
   const [person, setPerson] = useState("");
 
   useEffect(() => {
-    let canceled = false;
+
+    // We are use a boolean "canceled" flag to ensure that the component is mounted. 
+    // This way we only update state if the "canceled" flag is true. And if we were making multiple requests inside a component,
+    // we would always display the data for the last one.
+
+
+    let canceled = true;
     setLoading(true);
 
     fakeFetch(person).then((data) => {
-      if (!canceled) {
+      if (canceled) {
         setData(data);
         setLoading(false);
       }
     });
 
-    return () => (canceled = true);
+    return () => (canceled = false);
   }, [person]);
 
   return (
