@@ -92,3 +92,14 @@ button:hover {
   font-size: x-large;
   font-family: sans-serif;
 }
+
+.redirectLink {
+  color: chocolate;
+  text-align: center;
+  text-decoration: wavy;
+  text-transform: math-auto;
+  font-size: x-large;
+  font-family: sans-serif;
+  border: 5px solid orange;
+  border-radius: 20px;
+}

@@ -2,7 +2,7 @@ import "./Race.css";
 import React from "react";
 import RaceConditionIssue from "./RaceConditionIssue";
 import RaceConditionSolution from "./RaceConditionSolution";
-
+import { Link } from "react-router-dom";
 const MainComponent = () => {
   return (
     <>
@@ -27,6 +27,11 @@ const MainComponent = () => {
         >
           Click to See Race Condition Image
         </a>
+      </div>
+      <div style={{ position: "relative", top: "40px" }}>
+        <Link to="/" className="redirectLink">
+          Go To MainPage
+        </Link>
       </div>
     </>
   );
