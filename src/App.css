@@ -46,7 +46,6 @@ body {
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.09);
-
   border-top: 2px solid rgba(225, 225, 225, 0.3);
   border-left: 2px solid rgba(225, 225, 225, 0.1);
   border-right: 1px solid rgba(225, 225, 225, 0.2);
@@ -208,4 +207,57 @@ div.emailError {
   body {
     flex-direction: column;
   }
+}
+
+/*                                                                   Game Component                                                                                  */
+
+.gameHead {
+  position: absolute;
+  top: 100px;
+  font-size: -webkit-xxx-large;
+  font-family: sans-serif;
+  color: gainsboro;
+  left: 50px;
+  right: 50px;
+  text-decoration: underline;
+  text-align: center;
+  text-decoration-color: rgb(214, 211, 207);
+}
+
+.backgroundBlur {
+  height: 550px;
+  width: 850px;
+  border-radius: 5px;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.09);
+  border-top: 2px solid rgba(225, 225, 225, 0.3);
+  border-left: 2px solid rgba(225, 225, 225, 0.1);
+  border-right: 1px solid rgba(225, 225, 225, 0.2);
+  margin: auto;
+  position: relative;
+  top: 35%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  background-color: blanchedalmond;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 8px;
+  position: relative;
+  top: 120px;
+  width: 400px;
+  margin: auto;
+}
+
+.game-board > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+  border: 1px solid black;
+  color: burlywood;;
 }

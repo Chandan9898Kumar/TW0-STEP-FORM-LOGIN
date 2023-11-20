@@ -4,7 +4,7 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Spinner from "./Spinner/Spinner";
 const HomePage = lazy(() => import("./HomePage"));
-const Game = lazy(() => import("./Game"));
+const Game = lazy(() => import("./GameComponent/Game"));
 
 const RaceCondition = lazy(() => import("./HandleRaceCondition/MainComponent"));
 function App() {
