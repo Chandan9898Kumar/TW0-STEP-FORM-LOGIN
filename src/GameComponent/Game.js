@@ -33,6 +33,93 @@ const Game = () => {
   const [checkedBox, setCheckedBox] = useState(obj);
   const [arrayValues, setArrayValues] = useState([]);
 
+  useEffect(() => {
+    let time = setTimeout(() => {
+      callBackFunction();
+    }, 2000);
+
+    return () => clearTimeout(time);
+  }, [arrayValues]);
+
+//   Unchecking boxes in reverse order.
+  const callBackFunction = () => {
+    let timer = setInterval(() => {
+      if (arrayValues[0] === "9") {
+        arrayValues.shift();
+        setCheckedBox((previous) => {
+          return {
+            ...previous,
+            classNine: !previous.classNine,
+          };
+        });
+      } else if (arrayValues[0] === "1") {
+        arrayValues.shift();
+        setCheckedBox((previous) => {
+          return {
+            ...previous,
+            classOne: !previous.classOne,
+          };
+        });
+      } else if (arrayValues[0] === "2") {
+        arrayValues.shift();
+        setCheckedBox((previous) => {
+          return {
+            ...previous,
+            classTwo: !previous.classTwo,
+          };
+        });
+      } else if (arrayValues[0] === "3") {
+        arrayValues.shift();
+        setCheckedBox((previous) => {
+          return {
+            ...previous,
+            classThree: !previous.classThree,
+          };
+        });
+      } else if (arrayValues[0] === "4") {
+        arrayValues.shift();
+        setCheckedBox((previous) => {
+          return {
+            ...previous,
+            classFour: !previous.classFour,
+          };
+        });
+      } else if (arrayValues[0] === "6") {
+        arrayValues.shift();
+        setCheckedBox((previous) => {
+          return {
+            ...previous,
+            classSix: !previous.classSix,
+          };
+        });
+      } else if (arrayValues[0] === "7") {
+        arrayValues.shift();
+        setCheckedBox((previous) => {
+          return {
+            ...previous,
+            classSeven: !previous.classSeven,
+          };
+        });
+      } else if (arrayValues[0] === "8") {
+        arrayValues.shift();
+        setCheckedBox((previous) => {
+          return {
+            ...previous,
+            classEight: !previous.classEight,
+          };
+        });
+      }
+
+      setArrayValues(arrayValues);
+
+      if (arrayValues.length === 0) {
+        clearInterval(timer);
+      }
+    }, 1000);
+  };
+
+
+//  Checking boxes same order. 
   const handleClickEvent = (argument) => {
     if (argument.target.dataset.action === "1") {
       setCheckedBox({
