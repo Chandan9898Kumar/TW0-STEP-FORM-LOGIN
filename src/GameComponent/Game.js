@@ -39,59 +39,51 @@ const Game = () => {
         ...checkedBox,
         classOne: true,
       });
-      setArrayValues([...arrayValues, argument.target.dataset.action]);
+      setArrayValues([argument.target.dataset.action, ...arrayValues]);
     } else if (argument.target.dataset.action === "2") {
       setCheckedBox({
         ...checkedBox,
         classTwo: true,
       });
-      setArrayValues([...arrayValues, argument.target.dataset.action]);
+      setArrayValues([argument.target.dataset.action, ...arrayValues]);
     } else if (argument.target.dataset.action === "3") {
       setCheckedBox({
         ...checkedBox,
         classThree: true,
       });
-      setArrayValues([...arrayValues, argument.target.dataset.action]);
+      setArrayValues([argument.target.dataset.action, ...arrayValues]);
     } else if (argument.target.dataset.action === "4") {
       setCheckedBox({
         ...checkedBox,
         classFour: true,
       });
-      setArrayValues([...arrayValues, argument.target.dataset.action]);
+      setArrayValues([argument.target.dataset.action, ...arrayValues]);
     } else if (argument.target.dataset.action === "6") {
       setCheckedBox({
         ...checkedBox,
         classSix: true,
       });
-      setArrayValues([...arrayValues, argument.target.dataset.action]);
+      setArrayValues([argument.target.dataset.action, ...arrayValues]);
     } else if (argument.target.dataset.action === "7") {
       setCheckedBox({
         ...checkedBox,
         classSeven: true,
       });
-      setArrayValues([...arrayValues, argument.target.dataset.action]);
+      setArrayValues([argument.target.dataset.action, ...arrayValues]);
     } else if (argument.target.dataset.action === "8") {
       setCheckedBox({
         ...checkedBox,
         classEight: true,
       });
-      setArrayValues([...arrayValues, argument.target.dataset.action]);
+      setArrayValues([argument.target.dataset.action, ...arrayValues]);
     } else if (argument.target.dataset.action === "9") {
       setCheckedBox({
         ...checkedBox,
         classNine: true,
       });
-      setArrayValues([...arrayValues, argument.target.dataset.action]);
+      setArrayValues([argument.target.dataset.action, ...arrayValues]);
     }
   };
-
-  const unCheckedBoxesInReverseOrder = () => {
-    //  here we write uncheck logic
-  };
-
-  if (arrayValues.length === 8) {
-    unCheckedBoxesInReverseOrder();
-  }
 
   return (
     <>
