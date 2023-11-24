@@ -251,5 +251,16 @@ div.emailError {
   top: 120px;
   width: 400px;
   margin: auto;
+  cursor: pointer;
 }
 
+.information {
+  position: relative;
+  top: 150px;
+  color: black;
+  text-align: center;
+  text-decoration: underline;
+  text-transform: capitalize;
+  font-family: cursive;
+  font-size: larger;
+}

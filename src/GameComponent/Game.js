@@ -232,6 +232,9 @@ const Game = () => {
             9
           </div>
         </div>
+        <div className="information">
+          Click on the boxes
+        </div>
       </div>
     </>
   );
