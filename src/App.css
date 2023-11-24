@@ -174,16 +174,36 @@ div.emailError {
   top: 40%;
 }
 
-.raceConditionHeading {
-  position: absolute;
-  left: 150px;
-  top: 10px;
+.divLinks {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.trafficStyle {
+  position: relative;
+  right: 100px;
+  top: 35px;
   text-transform: capitalize;
   letter-spacing: 2px;
 }
 
-.raceConditionHeading:hover {
-  color: #ecb6b6;
+.raceCondition {
+  position: relative;
+  left: 100px;
+  top: 30px;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+.trafficStyle h2:hover {
+  color: #474444;
+  cursor: pointer;
+}
+
+.raceCondition h2:hover {
+  color: #474444;
   cursor: pointer;
 }
 

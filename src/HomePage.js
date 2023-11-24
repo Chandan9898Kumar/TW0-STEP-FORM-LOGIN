@@ -40,12 +40,26 @@ function HomePage() {
   return (
     <>
       <div className="body">
-        <Link
-          to="/raceCondition"
-          style={{ textDecoration: "none", color: "white" }}
-        >
-          <h2 className="raceConditionHeading">RaceCondition</h2>
-        </Link>
+        <div className="divLinks">
+          <div className="raceCondition">
+            <Link
+              to="/raceCondition"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <h2>RaceCondition</h2>
+            </Link>
+          </div>
+
+          <div className="trafficStyle">
+            <Link
+              to="/trafficSignal"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <h2>Traffic Signal</h2>
+            </Link>
+          </div>
+        </div>
+
         <div id="formDiv">
           <div className="header">
             <div>
