@@ -284,3 +284,63 @@ div.emailError {
   font-family: cursive;
   font-size: larger;
 }
+
+/*                                                          Traffic Signal                                                                                                           */
+
+.MainHeading {
+  position: relative;
+  bottom: 25rem;
+  width: 100%;
+  font-size: larger;
+  font-family: cursive;
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.trafficHead {
+  color: #7d7a7a;
+}
+
+.trafficSignal {
+  position: fixed;
+  border: 2px solid black;
+  width: 120px;
+  top: 300px;
+  left: 45%;
+  right: 50%;
+}
+.green {
+  border: 2px solid green;
+}
+
+.red {
+  border: 2px solid red;
+}
+
+.yellow {
+  border: 2px solid yellow;
+}
+
+.green,.red,.yellow {
+  border-radius: 50%;
+  width: 70px;
+  margin: auto;
+  height: 65px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.backGreen{
+  background-color: green;
+}
+
+.backYellow{
+  background-color: yellow;
+}
+
+.backRed{
+  background-color: red;
+}
