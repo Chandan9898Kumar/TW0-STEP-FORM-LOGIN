@@ -1,6 +1,6 @@
 import "../App.css";
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 const obj = {
   classOne: false,
   classTwo: false,
@@ -181,70 +181,73 @@ const Game = () => {
   };
 
   return (
-    (
-      <>
-        <div className="gameHead">The Game</div>
-        <div className="backgroundBlur">
+    <>
+      <div className="gameHead">The Game</div>
+      <div className="backgroundBlur">
+        <div
+          className="game-board"
+          onClick={(event) => {
+            handleClickEvent(event);
+          }}
+        >
           <div
-            className="game-board"
-            onClick={(event) => {
-              handleClickEvent(event);
-            }}
+            data-action="1"
+            style={checkedBox.classOne ? updatedState : initialState}
           >
-            <div
-              data-action="1"
-              style={checkedBox.classOne ? updatedState : initialState}
-            >
-              1
-            </div>
-            <div
-              data-action="2"
-              style={checkedBox.classTwo ? updatedState : initialState}
-            >
-              2
-            </div>
-            <div
-              data-action="3"
-              style={checkedBox.classThree ? updatedState : initialState}
-            >
-              3
-            </div>
-            <div
-              data-action="4"
-              style={checkedBox.classFour ? updatedState : initialState}
-            >
-              4
-            </div>
-            <div style={{ visibility: "hidden" }}>5</div>
-            <div
-              data-action="6"
-              style={checkedBox.classSix ? updatedState : initialState}
-            >
-              6
-            </div>
-            <div
-              data-action="7"
-              style={checkedBox.classSeven ? updatedState : initialState}
-            >
-              7
-            </div>
-            <div
-              data-action="8"
-              style={checkedBox.classEight ? updatedState : initialState}
-            >
-              8
-            </div>
-            <div
-              data-action="9"
-              style={checkedBox.classNine ? updatedState : initialState}
-            >
-              9
-            </div>
+            1
           </div>
-          <div className="information">Click on the boxes</div>
+          <div
+            data-action="2"
+            style={checkedBox.classTwo ? updatedState : initialState}
+          >
+            2
+          </div>
+          <div
+            data-action="3"
+            style={checkedBox.classThree ? updatedState : initialState}
+          >
+            3
+          </div>
+          <div
+            data-action="4"
+            style={checkedBox.classFour ? updatedState : initialState}
+          >
+            4
+          </div>
+          <div style={{ visibility: "hidden" }}>5</div>
+          <div
+            data-action="6"
+            style={checkedBox.classSix ? updatedState : initialState}
+          >
+            6
+          </div>
+          <div
+            data-action="7"
+            style={checkedBox.classSeven ? updatedState : initialState}
+          >
+            7
+          </div>
+          <div
+            data-action="8"
+            style={checkedBox.classEight ? updatedState : initialState}
+          >
+            8
+          </div>
+          <div
+            data-action="9"
+            style={checkedBox.classNine ? updatedState : initialState}
+          >
+            9
+          </div>
         </div>
-      </>
-    )
+        <div className="information">Click on the boxes</div>
+      </div>
+      <div className="appLink">
+        <Link to={`/game/version/${2}`} className="enter-room-button">
+          Join Game V2
+        </Link>
+      </div>
+    </>
   );
 };
 

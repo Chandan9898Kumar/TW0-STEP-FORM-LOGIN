@@ -324,7 +324,9 @@ div.emailError {
   border: 2px solid yellow;
 }
 
-.green,.red,.yellow {
+.green,
+.red,
+.yellow {
   border-radius: 50%;
   width: 70px;
   margin: auto;
@@ -333,14 +335,33 @@ div.emailError {
   margin-bottom: 5px;
 }
 
-.backGreen{
+.backGreen {
   background-color: green;
 }
 
-.backYellow{
+.backYellow {
   background-color: yellow;
 }
 
-.backRed{
+.backRed {
   background-color: red;
+}
+
+.appLink {
+  position: relative;
+  top: 30px;
+  font-size: larger;
+  text-decoration: none;
+  text-decoration-line: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.enter-room-button {
+  text-decoration: none;
+  color: #7d7a7a;
+}
+
+.enter-room-button:hover {
+  color: brown;
 }

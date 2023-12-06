@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Spinner from "./Spinner/Spinner";
 const HomePage =      lazy(() => import("./HomePage"));
 const Game =          lazy(() => import("./GameComponent/Game"));
+const GameVersionTwo = lazy(() => import("./GameComponent/GameVersionTwo"))
 const RaceCondition = lazy(() => import("./HandleRaceCondition/MainComponent"));
 const TrafficSignal = lazy(()=> import("./TrafficSignalComponent/TrafficSignal"));
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<HomePage />} />
               <Route path="/game" element={<Game />} />
+              <Route path="/game/version/:id" element={<GameVersionTwo />} />
               <Route path="/raceCondition" element={<RaceCondition />} />
               <Route path='/trafficSignal' element={<TrafficSignal />} />
               <Route path="*" element={<NotFound />} />
