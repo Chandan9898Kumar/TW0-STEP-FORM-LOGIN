@@ -27,6 +27,7 @@ export default function GameVersionTwo() {
   const deactivateCells = () => {
     setIsDeactivating(true);
     const timer = setInterval(() => {
+      //  Here if console.log(order) , it will always show you the initial values which we stored before setInterval started.
       setOrder((origOrder) => {
         const newOrder = origOrder.slice();
         newOrder.pop();
@@ -38,10 +39,24 @@ export default function GameVersionTwo() {
 
         return newOrder;
       });
-    }, 300);
+
+      //                                                                     OR
+      //     order.pop()
+      //     setOrder([...order])
+      //     if (order.length === 0) {
+      //     clearInterval(timer);
+      //     setIsDeactivating(false);
+      //     }
+
+      //    Note :  Do not set data like this - setData(order), it will perform some unexpected results, because we are setting same const value: order.
+      //    Reason :  setInterval's closure only accesses the "order" variable in the first render,
+      //    when you set same value then react will not update the component.It has to be different. And we set data inside setInterval which takes initial values due to closures.
+    }, 1000);
   };
 
   const activateCells = (index) => {
+    //  Here instead of doing setOrder([...order,index]) we are creating a new constant to store its value because setState performs asynchronus behaviour.;
+
     const newOrder = [...order, index];
     setOrder(newOrder);
     // deactivate
@@ -68,7 +83,7 @@ export default function GameVersionTwo() {
               isDisabled={order.includes(index) || isDeactivating}
             />
           ) : (
-            <span />
+            <span key={index} />
           );
         })}
       </div>
