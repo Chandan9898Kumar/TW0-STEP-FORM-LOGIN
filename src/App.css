@@ -232,7 +232,6 @@ div.emailError {
 /*                                                                   Game Component                                                                                  */
 
 .gameHead {
-  position: absolute;
   top: 100px;
   font-size: -webkit-xxx-large;
   font-family: sans-serif;
@@ -242,10 +241,11 @@ div.emailError {
   text-decoration: underline;
   text-align: center;
   text-decoration-color: rgb(214, 211, 207);
+  margin-bottom: 10px;
 }
 
 .backgroundBlur {
-  height: 550px;
+  height: 450px;
   width: 850px;
   border-radius: 5px;
   -webkit-backdrop-filter: blur(6px);
@@ -288,7 +288,6 @@ div.emailError {
 /*                                                          Traffic Signal                                                                                                           */
 
 .MainHeading {
-  position: relative;
   bottom: 25rem;
   width: 100%;
   font-size: larger;
@@ -302,10 +301,11 @@ div.emailError {
 
 .trafficHead {
   color: #7d7a7a;
+  margin-bottom: 200px;
 }
 
 .trafficSignal {
-  position: fixed;
+  margin: auto;
   border: 2px solid black;
   width: 120px;
   top: 300px;
