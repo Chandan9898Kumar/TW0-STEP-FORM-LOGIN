@@ -3,11 +3,11 @@ import React, { Suspense, lazy } from "react";
 // eslint-disable-next-line
 import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
 import Spinner from "./Spinner/Spinner";
-const HomePage = lazy(() => import("./HomePage"));
-const Game = lazy(() => import("./GameComponent/Game"));
-const GameVersionTwo = lazy(() => import("./GameComponent/GameVersionTwo"));
-const RaceCondition = lazy(() => import("./HandleRaceCondition/MainComponent"));
-const TrafficSignal = lazy(() =>import("./TrafficSignalComponent/TrafficSignal"));
+const HomePage =        lazy(() => import("./HomePage"));
+const Game =            lazy(() => import("./GameComponent/Game"));
+const GameVersionTwo =  lazy(() => import("./GameComponent/GameVersionTwo"));
+const RaceCondition =   lazy(() => import("./HandleRaceCondition/MainComponent"));
+const TrafficSignal =   lazy(() =>import("./TrafficSignalComponent/TrafficSignal"));
 function App() {
   return (
     <>
