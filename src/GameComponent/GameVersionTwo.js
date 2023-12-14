@@ -69,9 +69,7 @@ export default function GameVersionTwo() {
     <div className="wrapper">
       <div
         className="grid"
-        style={{
-          gridTemplateColumns: `repeat(${config[0].length}, 1fr)`,
-        }}
+        style={{gridTemplateColumns: `repeat(${config[0].length}, 1fr)`,}}
       >
         {config.flat(1).map((value, index) => {
           return value ? (
