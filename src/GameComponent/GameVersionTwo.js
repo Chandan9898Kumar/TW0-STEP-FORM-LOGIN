@@ -1,7 +1,8 @@
 import "./gameStyle.css";
 import React from "react";
-import { useState } from "react";
-
+import { useState, useEffect, useLayoutEffect } from "react";
+import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
 function Cell({ filled, onClick, isDisabled, label }) {
   return (
     <button
@@ -15,8 +16,16 @@ function Cell({ filled, onClick, isDisabled, label }) {
 }
 
 export default function GameVersionTwo() {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [order, setOrder] = useState([]);
   const [isDeactivating, setIsDeactivating] = useState(false);
+
+  useEffect(() => {
+    if (Number(id) !== 2) {
+      navigate("/game");
+    }
+  }, []);
 
   const config = [
     [1, 1, 1],
@@ -69,7 +78,7 @@ export default function GameVersionTwo() {
     <div className="wrapper">
       <div
         className="grid"
-        style={{gridTemplateColumns: `repeat(${config[0].length}, 1fr)`,}}
+        style={{ gridTemplateColumns: `repeat(${config[0].length}, 1fr)` }}
       >
         {config.flat(1).map((value, index) => {
           return value ? (
